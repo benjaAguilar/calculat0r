@@ -13,6 +13,12 @@ function getDivide(a, b){return a / b}
 function getSubstract(a, b){return a - b}
 function getAdd(a, b){return a + b}
 
+function addCurrentNum(){
+    let num = parseInt(currentNum.join(''));
+    operation.push(num);
+    currentNum = [];
+}
+
 function showOnDisplay(element){
     let userNums = document.querySelector('.user-numbers');
     if( element === '/' ||
@@ -20,14 +26,10 @@ function showOnDisplay(element){
         element === '-' ||
         element === '+' 
         ){
-        if(currentNum[0] != undefined){
-            let num = parseInt(currentNum.join(''));
-            operation.push(num);
 
-        }
+        if(currentNum[0] != undefined) addCurrentNum();
         operation.push(element)
-        currentNum = [];
-
+    
     }
 
     userNums.textContent += element;
@@ -72,6 +74,11 @@ function getResult(arr){
     operation = arr;
 } 
 
+function showResult(){
+    let result = document.querySelector('.user-numbers');
+    result.textContent = operation;
+}
+
 function createKeyboard(){
     let indexBtn = 1;
 
@@ -96,13 +103,10 @@ multiply.addEventListener("click", () => {showOnDisplay("*")});
 substract.addEventListener("click", () => {showOnDisplay("-")});
 add.addEventListener("click", () => {showOnDisplay("+")});
 equal.addEventListener("click", () => {
-    let num = parseInt(currentNum.join(''));
-    operation.push(num);
-    currentNum = [];
     
+    addCurrentNum();
     for(let i = 0; i < operation.length; i++){getResult(operation)};
-    let result = document.querySelector('.user-numbers');
-    result.textContent = operation;
+    showResult();
     
 });
 
