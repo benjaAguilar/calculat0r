@@ -1,0 +1,63 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+button{
+    width: 70px;
+    height: 70px;
+}
+
+.display{
+    font-size: 30px;
+    background-color: #333;
+    width: 320px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.display-number{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    background-color: #ccc;
+    width: 300px;
+    height: 128px;
+}
+
+.result,
+.user-numbers{
+    margin-right: 20px;
+}
+
+.result{
+margin-top: 30px;
+}
+
+.btns-section{
+    display: flex;
+    background-color: #333;
+    padding: 20px;
+}
+
+.keyboard{
+    display: flex;
+    flex-wrap: wrap;
+    width: 250px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.operators{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
