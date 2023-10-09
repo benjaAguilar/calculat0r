@@ -47,31 +47,28 @@ function getResult(arr){
             firstNumI = i - 1;
             secondNumI = i + 1;
             result = getMultiply(arr[firstNumI], arr[secondNumI]);
-            arr.splice(firstNumI, 3, result);
     
         } else if(arr.includes('/')){
             i = arr.indexOf('/');
             firstNumI = i - 1;
             secondNumI = i + 1;
             result = getDivide(arr[firstNumI], arr[secondNumI]);
-            arr.splice(firstNumI, 3, result);
     
         } else if(arr.includes('-')){
             i = arr.indexOf('-');
             firstNumI = i - 1;
             secondNumI = i + 1;
             result = getSubstract(arr[firstNumI], arr[secondNumI]);
-            arr.splice(firstNumI, 3, result);
     
         } else {
             i = arr.indexOf('+');
             firstNumI = i - 1;
             secondNumI = i + 1;
             result = getAdd(arr[firstNumI], arr[secondNumI]);
-            arr.splice(firstNumI, 3, result);
+            
         }
-    console.log(arr);
-    operation = arr;
+        arr.splice(firstNumI, 3, result);
+        operation = arr;
 } 
 
 function showResult(){
@@ -103,7 +100,7 @@ multiply.addEventListener("click", () => {showOnDisplay("*")});
 substract.addEventListener("click", () => {showOnDisplay("-")});
 add.addEventListener("click", () => {showOnDisplay("+")});
 equal.addEventListener("click", () => {
-    
+
     addCurrentNum();
     for(let i = 0; i < operation.length; i++){getResult(operation)};
     showResult();
