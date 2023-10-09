@@ -30,7 +30,7 @@ function toggleButtons(){
 }
 
 function addCurrentNum(){
-    let num = parseInt(currentNum.join(''));
+    let num = parseFloat(currentNum.join(''));
     operation.push(num);
     currentNum = [];
 }
