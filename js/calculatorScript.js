@@ -4,7 +4,8 @@ let secondNum;
 let btnNumbers = document.querySelectorAll('.btns');
 
 function showOnDisplay(element){
-    console.log(element);
+    let userNums = document.querySelector('.user-numbers');
+    userNums.textContent += element;
 }
 
 function createKeyboard(){
@@ -19,7 +20,6 @@ function createKeyboard(){
         } 
         button.addEventListener("click", () => {showOnDisplay(i);});
         indexBtn++;
-        console.log(indexBtn);
     });
 }
 
