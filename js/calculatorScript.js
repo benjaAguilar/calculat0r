@@ -1,14 +1,16 @@
 let operation = [];
 let currentNum = [];
 let userNums = document.querySelector('.user-numbers');
+let numBtn = document.querySelector('.btns');
 let btnNumbers = document.querySelectorAll('.btns');
 let clear = document.querySelector('#clear');
 
 clear.addEventListener("click", () => {
+    if(numBtn.disabled === true) toggleButtons();
     operation = [];
     currentNum = [];
     userNums.textContent = "";
-})
+});
 
 let divide = document.querySelector('#divide');
 let multiply = document.querySelector('#multiply');
@@ -20,6 +22,12 @@ function getMultiply(a, b){return a * b}
 function getDivide(a, b){return a / b}
 function getSubstract(a, b){return a - b}
 function getAdd(a, b){return a + b}
+
+function toggleButtons(){
+    (numBtn.disabled === false) ?
+    btnNumbers.forEach(button => button.disabled = true):
+    btnNumbers.forEach(button => button.disabled = false);
+}
 
 function addCurrentNum(){
     let num = parseInt(currentNum.join(''));
@@ -33,10 +41,10 @@ function showOnDisplay(element){
         element === '-' ||
         element === '+' 
         ){
-
-        if(currentNum[0] != undefined) addCurrentNum();
-        operation.push(element)
     
+        if(currentNum[0] != undefined) addCurrentNum();
+        if(numBtn.disabled === true) toggleButtons();
+        operation.push(element)
     }
 
     userNums.textContent += element;
@@ -108,7 +116,7 @@ equal.addEventListener("click", () => {
     addCurrentNum();
     for(let i = 0; i < operation.length; i++){getResult(operation)};
     showResult();
-    
+    toggleButtons();
 });
 
 
