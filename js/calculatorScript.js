@@ -20,8 +20,11 @@ function showOnDisplay(element){
         element === '-' ||
         element === '+' 
         ){
-        let num = parseInt(currentNum.join(''));
-        operation.push(num);
+        if(currentNum[0] != undefined){
+            let num = parseInt(currentNum.join(''));
+            operation.push(num);
+
+        }
         operation.push(element)
         currentNum = [];
 
@@ -66,6 +69,7 @@ function getResult(arr){
             arr.splice(firstNumI, 3, result);
         }
     console.log(arr);
+    operation = arr;
 } 
 
 function createKeyboard(){
@@ -94,7 +98,11 @@ add.addEventListener("click", () => {showOnDisplay("+")});
 equal.addEventListener("click", () => {
     let num = parseInt(currentNum.join(''));
     operation.push(num);
-    operation.forEach((element) => {getResult(operation);});
+    currentNum = [];
+    
+    for(let i = 0; i < operation.length; i++){getResult(operation)};
+    let result = document.querySelector('.user-numbers');
+    result.textContent = operation;
     
 });
 
