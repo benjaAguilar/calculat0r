@@ -17,6 +17,7 @@ let multiply = document.querySelector('#multiply');
 let substract = document.querySelector('#substract');
 let add = document.querySelector('#add');
 let equal = document.querySelector('#equal');
+let dot = document.querySelector('#dot');
 
 function getMultiply(a, b){return a * b}
 function getDivide(a, b){return a / b}
@@ -46,7 +47,7 @@ function showOnDisplay(element){
         if(numBtn.disabled === true) toggleButtons();
         operation.push(element)
     }
-
+    (currentNum.includes('.')) ? dot.disabled = true: dot.disabled = false;
     userNums.textContent += element;
   
 }
@@ -118,6 +119,9 @@ equal.addEventListener("click", () => {
     showResult();
     toggleButtons();
 });
-
+dot.addEventListener("click", () => {
+    currentNum.push(".");
+    showOnDisplay(".");
+});
 
 
