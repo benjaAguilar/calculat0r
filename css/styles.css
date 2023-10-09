@@ -6,8 +6,18 @@ body{
 }
 
 button{
+    font-size: 30px;
     width: 70px;
     height: 70px;
+    border-radius: 20px;
+    background-color: coral;
+    border: none;
+    box-shadow: 0px 0px 5px orange;
+}
+
+button:hover{
+    background-color: orange;
+    cursor: pointer;
 }
 
 .display{
