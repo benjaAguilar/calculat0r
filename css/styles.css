@@ -47,13 +47,8 @@ button:hover{
     box-shadow: inset 0px 0px 5px #333;
 }
 
-.result,
 .user-numbers{
     margin-right: 20px;
-}
-
-.result{
-margin-top: 30px;
 }
 
 .btns-section{
