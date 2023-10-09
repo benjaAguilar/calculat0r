@@ -1,6 +1,14 @@
 let operation = [];
 let currentNum = [];
+let userNums = document.querySelector('.user-numbers');
 let btnNumbers = document.querySelectorAll('.btns');
+let clear = document.querySelector('#clear');
+
+clear.addEventListener("click", () => {
+    operation = [];
+    currentNum = [];
+    userNums.textContent = "";
+})
 
 let divide = document.querySelector('#divide');
 let multiply = document.querySelector('#multiply');
@@ -20,7 +28,6 @@ function addCurrentNum(){
 }
 
 function showOnDisplay(element){
-    let userNums = document.querySelector('.user-numbers');
     if( element === '/' ||
         element === '*' ||
         element === '-' ||
@@ -71,10 +78,7 @@ function getResult(arr){
         operation = arr;
 } 
 
-function showResult(){
-    let result = document.querySelector('.user-numbers');
-    result.textContent = operation;
-}
+function showResult(){userNums.textContent = operation;}
 
 function createKeyboard(){
     let indexBtn = 1;
