@@ -4,6 +4,7 @@ let userNums = document.querySelector('.user-numbers');
 let numBtn = document.querySelector('.btns');
 let btnNumbers = document.querySelectorAll('.btns');
 let clear = document.querySelector('#clear');
+let backspace = document.querySelector('#backspace');
 
 clear.addEventListener("click", () => {
     if(numBtn.disabled === true) toggleButtons();
@@ -107,6 +108,12 @@ function createKeyboard(){
     });
 }
 
+function deleteOnDisplay(){
+    let del = userNums.textContent.split('');
+    del.pop();
+    userNums.textContent = del.join('');
+}
+
 createKeyboard();
 divide.addEventListener("click", () => {showOnDisplay("/")});
 multiply.addEventListener("click", () => {showOnDisplay("*")});
@@ -122,6 +129,16 @@ equal.addEventListener("click", () => {
 dot.addEventListener("click", () => {
     currentNum.push(".");
     showOnDisplay(".");
+});
+backspace.addEventListener("click", () => {
+    if(operation[0] === undefined){
+        currentNum.pop();
+
+    }else if(currentNum[0] === undefined){
+        operation.pop();
+
+    }
+    deleteOnDisplay();
 });
 
 
