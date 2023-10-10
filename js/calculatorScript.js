@@ -1,17 +1,11 @@
 let operation = [];
 let currentNum = [];
+
 let userNums = document.querySelector('.user-numbers');
 let numBtn = document.querySelector('.btns');
 let btnNumbers = document.querySelectorAll('.btns');
 let clear = document.querySelector('#clear');
 let backspace = document.querySelector('#backspace');
-
-clear.addEventListener("click", () => {
-    if(numBtn.disabled === true) toggleButtons();
-    operation = [];
-    currentNum = [];
-    userNums.textContent = "";
-});
 
 let divide = document.querySelector('#divide');
 let multiply = document.querySelector('#multiply');
@@ -114,6 +108,12 @@ function deleteOnDisplay(){
     userNums.textContent = del.join('');
 }
 
+function clearAll(){
+    operation = [];
+    currentNum = [];
+    userNums.textContent = "";
+}
+
 createKeyboard();
 divide.addEventListener("click", () => {showOnDisplay("/")});
 multiply.addEventListener("click", () => {showOnDisplay("*")});
@@ -131,14 +131,19 @@ dot.addEventListener("click", () => {
     showOnDisplay(".");
 });
 backspace.addEventListener("click", () => {
-    if(operation[0] === undefined){
+    if(currentNum[0] === undefined){
+        (operation.length === 1) ? clearAll(): operation.pop();
+       
+    } else{
         currentNum.pop();
-
-    }else if(currentNum[0] === undefined){
-        operation.pop();
 
     }
     deleteOnDisplay();
 });
+clear.addEventListener("click", () => {
+    if(numBtn.disabled === true) toggleButtons();
+    clearAll();
+});
+
 
 
