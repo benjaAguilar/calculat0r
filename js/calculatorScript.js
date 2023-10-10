@@ -109,6 +109,7 @@ function deleteOnDisplay(){
 }
 
 function clearAll(){
+    if(numBtn.disabled === true) toggleButtons();
     operation = [];
     currentNum = [];
     userNums.textContent = "";
@@ -141,7 +142,6 @@ backspace.addEventListener("click", () => {
     deleteOnDisplay();
 });
 clear.addEventListener("click", () => {
-    if(numBtn.disabled === true) toggleButtons();
     clearAll();
 });
 
