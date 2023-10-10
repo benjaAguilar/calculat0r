@@ -75,6 +75,18 @@ button:hover{
     gap: 10px;
 }
 
+.back{
+    display: flex;
+    position: fixed;
+    align-self: flex-end;
+    margin-left: 10px;
+}
+
+.back button{
+    width: 230px;
+    
+}
+
 .credits{
     margin-top: 30px;
 }
