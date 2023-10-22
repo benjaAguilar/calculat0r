@@ -145,5 +145,14 @@ clear.addEventListener("click", () => {
     clearAll();
 });
 
+document.addEventListener("keydown", (e) =>{
+    let key = parseInt(e.key);
+
+    if(!isNaN(key)){
+        showOnDisplay(key);
+        currentNum.push(key);
+    }
+});
+
 
 
