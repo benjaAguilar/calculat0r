@@ -148,7 +148,7 @@ clear.addEventListener("click", () => {
 document.addEventListener("keydown", (e) =>{
     let key = parseInt(e.key);
 
-    if(!isNaN(key)){
+    if(!isNaN(key) && numBtn.disabled === false){
         showOnDisplay(key);
         currentNum.push(key);
     }
